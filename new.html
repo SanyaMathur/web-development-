@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h3{
+        text-align: center;
+    }
+</style>
+<body>
+    <h3>HEALTH CARE FORM</h3>
+      <form>
+            <fieldset>
+                <legend>Basic Information</legend>
+                <label>Full Name:</label>
+                <input type="text" name="name">
+                <br><br>
+                <label>Birth date:</label>
+                <input type="date" name="date">
+                <br><br>
+                <label>Gender:</label>
+                <input type="radio" name="Gender">
+                <label>Male</label>
+                <input type="radio" name="Gender">
+                <label>Female</label>
+                
+
+                <br><br>
+                <label>Address:</label>
+                <input type="text" name="address">
+                <br><br>
+                <label>Phone Number:</label>
+                <input type="text" name="phonenumber">
+                <br><br>
+                <label>E-Mail:</label>
+                <input type="email" name="E-mail" id="e-mail"> 
+        
+            </fieldset>
+
+             <fieldset>
+                <legend>Extra Information</legend>
+                <label>Medical Problems:</label>
+                <input type="checkbox" name="Pnuemonia">
+                <label>Pneumonia</label>
+                <input type="checkbox" name="Jaundice">
+                <label>Jaundice</label>
+                <input type="checkbox" name="viral">
+                <label>Viral</label>
+                <br><br>
+
+                <label for="Room type">Room type:</label>
+                <select name="room type" id="Room type">
+                <option value="Select a room type">Select a room type</option>
+                <option value="A/C">A/C</option>
+                <option value="Non A/C">Non A/C</option> 
+                </select> <br><br>
+                
+                <label for="Payment type">Payment type:</label>
+                <select name="Payment type" id="Payment type">
+               <option value="Select a payment type">Select a payment type</option>
+                <option value="Cash">Cash</option>
+                <option value="Credit/Debit Card">Credit/Debit Card</option>
+                <option value="Coupons">Coupons</option>  
+                </select> <br><br>
+
+                <label for="Doctor type">Doctor type:</label>
+                <select name="Doctor type" id="Doctor type">
+               <option value="Select a doctor  type">Select a doctor type</option>
+                <option value="Gynalogist">Gynalogist</option>
+                <option value="Orthosurgeon">Orthosurgeon</option>
+                <option value="Dentist">Dentist</option>  
+                </select> <br><br>
+
+         
+            </fieldset>
+            </form>
+            <br><br>
+            <input type="submit" value="Send Data" onclick="submit()">
+            <input type="reset" value="Reset Form">
+        </fieldset>
+    </form>
+<script>
+    function submit()
+    {
+        alert("Form Submitted Successfully");
+        window.onload(localStorage.getItem(x,"nm"));
+    }
+
+</script>
+
+</body>
+</html>
