@@ -1,0 +1,84 @@
+<html>
+<fieldset>
+    <legend> Extra Information</legend>
+    <label>Select members:</label>
+    <select name="select members" id="select members" width="80px">
+    <option value="1 member">1 member</option>
+    <option value="2 member">2 member</option>
+    <option value="3 member">3 member</option>
+    <option value="More member">More member</option>
+    </select>
+    <br><br>
+
+<fieldset>
+    <legend> Premium Calculation </legend>
+    <table border="" id="emptbl">
+       <!--- <div>
+        <input type="hidden" id="middlle" name="middlegp" onkeypress="return validatename(event)";>
+        <input type="hidden" id="middlle" name="middlegp" onkeypress="return validatename(event)";>
+        <input type="hidden" id="middlle" name="middlegp" onkeypress="return validatename(event)";>
+        <input type="hidden" id="middlle" name="middlegp" onkeypress="return validatename(event)";>
+        <input type="hidden" id="middlle" name="middlegp" onkeypress="return validatename(event)";>
+        <input type="hidden" id="middlle" name="middlegp" onkeypress="return validatename(event)";>
+        </div> -->
+     <tr>
+        <th> Sr. No.</th>
+        <th>Customer Name</th>
+        <th>Relation</th>
+        <th>DOB</th>
+        <th>Nominee Name</th>
+        <th>Nominee Relation</th>
+      <tr>
+      <tr>
+        <td>  1. </td>
+        <td>
+        <input type="text" name="middle" id="mgp"  onkeypress="return validatename(event)">
+        </td>
+        
+        <td>
+        <select name="Relation type" name="middle" id="mgp" onkeypress="return validatename(event)">
+        <option value="SELF">Self</option>
+        <option value="SPOUSE">Spouse</option>
+        <option value="SON">Son</option>
+        <option value="DAUGHTER">Daughter</option>
+        <option value="FATHER">Father</option>
+        <option value="MOTHER">Mother</option>
+        </select>
+        </td>
+        
+        <td>
+        <input type="date" name="middle" id="mgp"  onkeypress="return validatename(event)">
+        </td>
+        
+        <td>
+        <input type="text" name="middle" id="mgp" placeholder="nominee"  onkeypress="return validatename(event)" >
+        </td>
+        
+        <td>
+        <select name="middle" id="mgp"  onkeypress="return validatename(event)">
+       <option value="SELF" name="fhc_self">Self</option>
+       <option value="SPOUSE">Spouse</option>
+       <option value="SON">Son</option>
+       <option value="DAUGHTER">Daughter</option>
+       <option value="FATHER">Father</option>
+       <option value="MOTHER">Mother</option>
+       </select>
+       </td>
+    <tr>
+    </table>
+
+    <script>
+   function  validatename(event){
+    var table = document.getElementById('mgp');
+	var rowCount = table.rows.length;
+	var cellCount = table.rows[0].cells.length; 
+	var row = table.insertRow(rowCount);
+	for(var i =0; i <= cellCount; i++){
+		var cell = 'cell'+i;
+		cell = row.insertCell(i);
+		var copycel = document.getElementById('col'+i).innerHTML;
+		cell.innerHTML=copycel;
+			}
+		}
+    </script>
+    </html>
