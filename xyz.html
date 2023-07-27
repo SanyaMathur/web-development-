@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<script src="./js/jquery-3.6.3.min.js"></script>
+</head>
+
+<body>
+<td>
+		<label>Member Covered</label>			
+		<select id="memberCombo" name="memberCombo" class="form-control" onchange ="showMembers();" style="width:11%;">
+		<option value="1">1 Member</option>			
+		<option value="2">2 Members</option>
+		<option value="3">3 Members</option>
+		<option value="4">4 Members</option>
+		<option value="5">5 Members</option>
+	   </select>
+</td>
+
+<div id ="memberRowGHC"> </div>
+<div id="memberDataRowName"> 
+<table border=" " id="mem_tbl" class=" table-bordered">
+<div id="memberDataDiv">
+                 
+				 <thead id="tbl_head">
+		
+							<tr>
+								<th class="centra">Sr. No</th>
+								<th class="centra">Customer Name</th>
+								<th class="centra">Relation</th>
+								<th class="centra">Gender</th>
+								<th class="centra">DOB</th>
+								<th class="centra">Nominee Name</th>
+								<th class="centra">Nominee Relation</th>
+							 </tr>
+				 </thead>
+				
+                <tbody id="tbody_id" border=" ">
+				<tr name="mem_tr" id="">
+				<td align="center" name="sr_no" id="no">  1.  </td>
+								
+<td align="center"><input type="text" id="FirstName" class="form-control" name="memberName" placeholder="FirstName LastName" onkeypress="return validateName();"/></td>
+								
+							<td align="center">
+									<select class="form-control" id="memRelation" name="memRelation">
+										<option value="0">--Select--</option>
+										<option value="Spouse">Spouse</option>
+										<option value="Son">Son</option>
+										<option value="Daughter">Daughter</option>
+										<option value="Father">Father</option>
+										<option value="Mother">Mother</option>
+										<option value="Brother">Brother</option>
+										<option value="Sister">Sister</option>
+										<option value="Father-in-law">Father-in-law</option>
+										<option value="Mother-in-law">Mother-in-law</option>
+										<option value="Aunt">Aunt</option>
+										<option value="Uncle">Uncle</option>
+									</select>
+							</td>
+								
+								
+								<td align="center">
+									<select class="form-control" id="memGender" name="memberGender">
+									<option value="select">--select--</option>
+										<option value="M">Male</option>
+										<option value="F">Female</option>
+									</select>
+					           </td>
+								
+								
+ <td align="center"><input type="text" class="form-control" id="memDobGHC" name="memberDOB" placeholder="DD-MM-YYYY" maxlength="15" /></td>
+  
+ <td align="center"><input type="text" class="form-control" id="memNominee" name="memberNominee" placeholder="FirstName LastName";></td>
+								
+ <td align="center">
+ <select class="form-control" id="memNomineeRelation" name="w_memNomineeRelation">
+										<option value="0">--Select--</option>
+										<option value="Spouse">Spouse</option>
+										<option value="Son">Son</option>
+										<option value="Daughter">Daughter</option>
+										<option value="Father">Father</option>
+										<option value="Mother">Mother</option>
+										<option value="Brother">Brother</option>
+										<option value="Sister">Sister</option>
+
+</select>
+
+</td>	
+</tbody>
+</div>	
+</div>				
+</table>
+</div>
+</body>
+
+<script>
+
+function showMembers()
+{
+    var total_count = 0;
+	var Row = document.getElementById("memberDataRowName");
+	var memberInd = document.getElementById("memberCombo").value;
+	<!-- var memberDataDiv = document.getElementById("memberDataDiv");-->
+	<!--var memberData_1 = new String(memberDataDiv.innerHTML);-->
+
+	var new_table = "";
+	var w_tbl_head = document.getElementById("tbl_head").innerHTML;
+	var v_tbody_id = document.getElementById("tbody_id").innerHTML;
+	total_count = parseInt(memberInd);
+	
+	if(total_count == 1){
+		new_table = new_table + w_tbl_head + v_tbody_id;
+	}
+	else if(total_count == 2){
+		new_table = new_table + w_tbl_head + v_tbody_id + v_tbody_id;
+	}
+	else if(total_count == 3){
+		new_table = new_table + w_tbl_head + v_tbody_id + v_tbody_id + v_tbody_id;
+	}
+	else if(total_count == 4){
+		new_table = new_table + w_tbl_head + v_tbody_id + v_tbody_id + v_tbody_id + v_tbody_id;
+	}
+	else{
+	    new_table = new_table + w_tbl_head + v_tbody_id + v_tbody_id + v_tbody_id + v_tbody_id + v_tbody_id;
+	}
+	Row.innerHTML = '<table id="mem_tbl" class="table-bordered">'+new_table+'</table>';
+
+
+	var v_mem_tr = document.getElementsByName("mem_tr");
+	var v_sr_no = document.getElementsByName("sr_no");
+	var v_mem_name = document.getElementsByName("memberName");
+	var v_memRelation = document.getElementsByName("memRelation");
+	var v_mem_gender = document.getElementsByName("memberGender");
+	var v_mem_dob=document.getElementsByName("memberDOB");
+	var v_nominee_name=document.getElementsByName("memberNominee");
+	var v_nominee_relation=document.getElementsByName("w_memNomineeRelation");
+	var cnt = 1;
+	
+	for(var i=0; i <= total_count-1; i++)
+	{
+		v_mem_tr[i].id = "tr_"+parseInt(i);
+		v_sr_no[i].innerHTML = cnt;
+		v_mem_name[i].id = "FirstName_"+cnt;
+		v_memRelation[i].id = "memRelation_"+cnt;
+		v_mem_gender[i].id = "memGender_"+cnt;
+		v_mem_dob[i].id = "memDobGHC_"+cnt;
+		v_nominee_name[i].id="memNominee_"+cnt;
+		v_nominee_relation[i].id="memNomineeRelation_"+cnt;
+		cnt++;
+	}
+
+}
+function show()
+{
+var d=document.getElementById("memberRowGHC").value;
+const arr = ["Sr No.", "Customer Name", "Relation", "Gender", "DOB", "Nominee Name", "Nominee Relation"];
+var new_table = "";
+for( let i=0; i<arr.length;i++)
+{	
+var s_no = 1 + parseInt(i);
+
+var customer_name= $("#FirstName").val();
+var name = arr[i];
+
+var relation=$("#memRelation").val();
+
+var gender=$("#memGender").val();
+
+var dob=$("#memDobGHC").val();
+
+var nomineename=$("#memNominee").val();
+
+var nominerelation=$("#memNomineeRelation").val();
+
+var v = v + `<tr> <td rowspan="1">${s_no}</td> <td>${name}</td> <td>${relation}</td> <td>${gender}</td> <td>${dob}</td> <td>${nomineename}</td> <td> ${nominerelation}</td></tr>`;
+}
+new_table = 'tbl_head'  + '<tbody>'+ v +'</tbody>';
+var v_table = '<table id="mem_tbl" class="table-bordered"> '+new_table+' </table>'
+document.getElementById("mem_tbl").innerHTML=v_table;
+}
+
+</script>
+</html>
